@@ -31,7 +31,7 @@ const App = () => {
 
   return (
     <div>
-      <div className="hidden xl:flex px-[180px] shadow bg-white text-black">
+      <div className="hidden xl:flex px-[180px] shadow !bg-white text-black">
         <div className="navbar min-h-0 py-0">
           <div className="navbar-start text-xl">
             <div className="font-semibold">Rahmatullayev</div>
