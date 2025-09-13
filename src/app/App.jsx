@@ -20,12 +20,13 @@ const App = () => {
   const current = () => {
     if (i18n.language == 'uz') {
       return "🇺🇿 O'zbekcha"
-    }
-    if (i18n.language == 'ru') {
+    } else if (i18n.language == 'ru') {
       return "🇷🇺 Русский"
-    }
-    if (i18n.language == 'en') {
+    } else if (i18n.language == 'en') {
       return "🇺🇸 English"
+    } else {
+      changeLanguage('uz')
+      return "🇺🇿 O'zbekcha"
     }
   }
 
@@ -77,7 +78,7 @@ const App = () => {
             <ul className="menu menu-horizontal gap-x-1">
               <li>
                 <details>
-                  <summary>English</summary>
+                  <summary>{ current() }</summary>
                   <ul className="p-2 bg-gray-200 z-1 w-max max-w-[300px] shadow text-black">
                     <li><a onClick={() => changeLanguage('en')}>🇺🇸 English</a></li>
                     <li><a onClick={() => changeLanguage('ru')}>🇷🇺 Русский</a></li>
