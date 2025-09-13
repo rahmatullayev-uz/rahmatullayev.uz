@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { BiMoon } from "react-icons/bi"
 import { FaRegUser } from "react-icons/fa"
 import { FiPhoneCall } from "react-icons/fi"
@@ -10,21 +11,38 @@ import { Outlet } from "react-router"
 
 const App = () => {
   const [menu, setMenu] = useState(false)
+  const [t, i18n] = useTranslation()
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng)
+  }
+
+  const current = () => {
+    if (i18n.language == 'uz') {
+      return "🇺🇿 O'zbekcha"
+    }
+    if (i18n.language == 'ru') {
+      return "🇷🇺 Русский"
+    }
+    if (i18n.language == 'en') {
+      return "🇺🇸 English"
+    }
+  }
 
   return (
     <div>
-      <div className="hidden xl:flex px-[180px] shadow">
+      <div className="hidden xl:flex px-[180px] shadow bg-white text-black">
         <div className="navbar min-h-0 py-0">
-          <div className="navbar-start">
+          <div className="navbar-start text-xl">
             <div className="font-semibold">Rahmatullayev</div>
           </div>
 
           <div className="hidden xl:navbar-center">
-            <ul className="menu menu-horizontal menu-sm gap-x-0.5">
-              <li><a href="" className="gap-x-1 menu-active"><FaRegUser /> About</a></li>
-              <li><a href="" className="gap-x-1"><GrBlog /> Blog</a></li>
-              <li><a href="" className="gap-x-1"><LiaClipboardListSolid /> Projects</a></li>
-              <li><a href="" className="gap-x-1"><FiPhoneCall />Contact Me</a></li>
+            <ul className="menu menu-horizontal gap-x-0.5">
+              <li><a href="" className="gap-x-1 menu-active"><FaRegUser /> {t('about')}</a></li>
+              <li><a href="" className="gap-x-1"><GrBlog /> {t('blog')}</a></li>
+              <li><a href="" className="gap-x-1"><LiaClipboardListSolid /> {t('projects')}</a></li>
+              <li><a href="" className="gap-x-1"><FiPhoneCall /> {t('contactme')}</a></li>
             </ul>
           </div>
 
@@ -32,10 +50,11 @@ const App = () => {
             <ul className="menu menu-horizontal gap-x-2">
               <li>
                 <details>
-                  <summary>English</summary>
-                  <ul className="p-2 bg-gray-200">
-                    <li><a href="">Russian</a></li>
-                    <li><a href="">Uzbek</a></li>
+                  <summary className="font-semibold border-[0.1px]">{ current() }</summary>
+                  <ul className="p-2 bg-gray-50 w-max max-w-[300px] shadow-xl">
+                    <li><a onClick={() => changeLanguage('en')} className="flex">🇺🇸 English</a></li>
+                    <li><a onClick={() => changeLanguage('ru')}>🇷🇺 Русский</a></li>
+                    <li><a onClick={() => changeLanguage('uz')}>🇺🇿 O'zbekcha</a></li>
                   </ul>
                 </details>
               </li>
@@ -59,9 +78,10 @@ const App = () => {
               <li>
                 <details>
                   <summary>English</summary>
-                  <ul className="bg-gray-100 z-1">
-                    <li><a href="">Uzbek</a></li>
-                    <li><a href="">Russian</a></li>
+                  <ul className="p-2 bg-gray-200 z-1 w-max max-w-[300px] shadow text-black">
+                    <li><a onClick={() => changeLanguage('en')}>🇺🇸 English</a></li>
+                    <li><a onClick={() => changeLanguage('ru')}>🇷🇺 Русский</a></li>
+                    <li><a onClick={() => changeLanguage('uz')}>🇺🇿 O'zbekcha</a></li>
                   </ul>
                 </details>
               </li>
@@ -80,36 +100,41 @@ const App = () => {
       </div>
 
       <div className={`${menu? 'block' : 'hidden'} z-0`}>
-        <ul className="menu menu-lg w-full">
-          <li><a href="" className="menu-active"><FaRegUser /> About</a></li>
-          <li><a href=""><GrBlog /> Blog</a></li>
-          <li><a href=""><LiaClipboardListSolid /> Projects</a></li>
-          <li><a href=""><FiPhoneCall /> Contact Me</a></li>
-        </ul>
-        
-        <div className="absolute bottom-1.5">
-          <ul className="grid grid-cols-4 w-lvw">
-            <li className="text-center">
-              <div className="btn btn-xl bg-gray-200">
-                <SiGithub />
-              </div>
-            </li>
-            <li className="text-center">
-              <div className="btn btn-xl bg-gray-200">
-                <SiTelegram className="text-blue-500" />
-              </div>
-            </li>
-            <li className="text-center">
-              <a className="btn btn-xl bg-gray-200">
-                <SiInstagram className="text-pink-700" />
-              </a>
-            </li>
-            <li className="text-center">
-              <a href="" className="btn btn-xl bg-gray-200">
-                <SiLinkedin className="text-blue-400" />
-              </a>
-            </li>
+        <div className="xl:hidden">
+          <ul className="menu menu-lg w-full">
+            <li><a href="" className="menu-active"><FaRegUser /> {t('about')}</a></li>
+            <li><a href=""><GrBlog /> {t('blog')}</a></li>
+            <li><a href=""><LiaClipboardListSolid /> {t('projects')}</a></li>
+            <li><a href=""><FiPhoneCall /> {t('contactme')}</a></li>
           </ul>
+          
+          <div className="absolute bottom-2.5">
+            <ul className="grid grid-cols-4 w-lvw">
+              <li className="text-center">
+                <a href="https://github.com/rahmatullayev-uz" className="btn btn-xl bg-gray-200">
+                  <SiGithub />
+                </a>
+              </li>
+              <li className="text-center">
+                <a href="https://t.me/rahmatullayev_uz" className="btn btn-xl bg-gray-200">
+                  <SiTelegram className="text-blue-500" />
+                </a>
+              </li>
+              <li className="text-center">
+                <a href="https://instagram.com/rahmatullayev_dev" className="btn btn-xl bg-gray-200">
+                  <SiInstagram className="text-pink-700" />
+                </a>
+              </li>
+              <li className="text-center">
+                <a href="https://www.linkedin.com/in/rahmatullayev" className="btn btn-xl bg-gray-200">
+                  <SiLinkedin className="text-blue-400" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="hidden xl:block">
+          <Outlet />
         </div>
       </div>
 
