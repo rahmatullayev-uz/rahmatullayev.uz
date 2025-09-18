@@ -2,5 +2,20 @@
     "about": "About",
     "blog": "Blog",
     "projects": "Projects",
-    "contactme": "Contact Me"
+    "contactme": "Contact Me",
+    "delete": "Delete",
+    "send": "Send",
+    "with-email": "With Email",
+    "with-telegram": "With Telegram",
+    "with-instagram": "With Instagram",
+    "with-linkedin": "With Linkedin",
+    "with-question": "I have a question",
+    "with-work": "I have a work",
+    "with-ignore": "I have a spam",
+    "enter-link": "Enter link..",
+    "enter-name": "Enter name..",
+    "enter-question": "Enter Words..",
+    "hold-question": "Enter words",
+    "how-contact": "How can i contact you?",
+    "select-type": "Select question type"
 }

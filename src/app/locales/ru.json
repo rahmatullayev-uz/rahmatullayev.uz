@@ -1,6 +1,21 @@
 {
-    "about": "About",
+    "about": "Обо мне",
     "blog": "Блог",
     "projects": "Проекты",
-    "contactme": "Контакты"
+    "contactme": "Контакты",
+    "delete": "O'chirish",
+    "send": "Yuborish",
+    "with-email": "Email orqali",
+    "with-telegram": "Telegram orqali",
+    "with-instagram": "Instagram orqali",
+    "with-linkedin": "Linkedin orqali",
+    "with-question": "Savol bor",
+    "with-work": "Ish bor",
+    "with-ignore": "Shikoyat bor",
+    "enter-link": "Havolani kiriting..",
+    "enter-name": "Ismingizni kiriting..",
+    "enter-question": "Arizani kiriting..",
+    "hold-question": "Ariza qoldirish",
+    "how-contact": "Qanday bog'lanaman?",
+    "select-type": "Ariza turini tanlang"
 }

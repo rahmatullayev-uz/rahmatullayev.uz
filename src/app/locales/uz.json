@@ -2,5 +2,20 @@
     "about": "Men haqimda",
     "blog": "Blog",
     "projects": "Loyihalar",
-    "contactme": "Bog'lanish"
+    "contactme": "Bog'lanish",
+    "delete": "O'chirish",
+    "send": "Yuborish",
+    "with-email": "Email orqali",
+    "with-telegram": "Telegram orqali",
+    "with-instagram": "Instagram orqali",
+    "with-linkedin": "Linkedin orqali",
+    "with-question": "Savol bor",
+    "with-work": "Ish bor",
+    "with-ignore": "Shikoyat bor",
+    "enter-link": "Havolani kiriting..",
+    "enter-name": "Ismingizni kiriting..",
+    "enter-question": "Arizani kiriting..",
+    "hold-question": "Ariza qoldirish",
+    "how-contact": "Qanday bog'lanaman?",
+    "select-type": "Ariza turini tanlang"
 }
