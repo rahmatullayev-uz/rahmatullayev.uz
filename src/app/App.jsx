@@ -34,7 +34,7 @@ const App = () => {
   return (
     <div>
       {/* Navbar for Desktop */}
-      <div className="hidden lg:flex justify-center shadow !bg-white text-black sticky top-0">
+      <div className="hidden lg:flex justify-center shadow !bg-white text-black sticky top-0 z-10">
         <div className="navbar bg-white min-h-0 py-0 container">
           <div className="navbar-start text-xl">
             <div className="font-semibold">Rahmatullayev</div>
@@ -42,10 +42,10 @@ const App = () => {
 
           <div className="hidden lg:navbar-center">
             <ul className="menu menu-horizontal gap-x-0.5">
-              <li><a href="/about" className="gap-x-1 menu-active"><FaRegUser /> {t('about')}</a></li>
-              <li><a href="/blog" className="gap-x-1"><GrBlog /> {t('blog')}</a></li>
-              <li><a href="/projects" className="gap-x-1"><LiaClipboardListSolid /> {t('projects')}</a></li>
-              <li><a href="/contact-me" className="gap-x-1"><FiPhoneCall /> {t('contactme')}</a></li>
+              <li><a href="/about" className={location.pathname == '/about' ? "menu-active gap-x-1" : "gap-x-1"}><FaRegUser /> {t('about')}</a></li>
+              <li><a href="/blog" className={ location.pathname == "/blog" ? "menu-active gap-x-1" : "gap-x-1"}><GrBlog /> {t('blog')}</a></li>
+              <li><a href="/projects" className={ location.pathname == "/projects" ? "menu-active gap-x-1" : "gap-x-1"}><LiaClipboardListSolid /> {t('projects')}</a></li>
+              <li><a href="/contact-me" className={ location.pathname == "/contact-me" ? "menu-active gap-x-1" : "gap-x-1"}><FiPhoneCall /> {t('contactme')}</a></li>
             </ul>
           </div>
 
@@ -60,9 +60,6 @@ const App = () => {
                     <li><a onClick={() => changeLanguage('uz')}>🇺🇿 O'zbekcha</a></li>
                   </ul>
                 </details>
-              </li>
-              <li>
-                <button className="outline text-xl"><BiMoon /></button>
               </li>
             </ul>
           </div>
@@ -89,28 +86,23 @@ const App = () => {
                   </ul>
                 </details>
               </li>
-              <li>
-                <button className="outline text-xl">
-                  <BiMoon />
-                </button>
-              </li>
             </ul>
           </div>
         </div>
       </div>
 
       <div className="mt-2 z-0">
-        <div className={`${menu? 'hidden' : 'block'}`}>
+        <div className={`${menu? 'hidden' : 'block z-0'}`}>
           <Outlet />
         </div>
 
         <div className={`${menu? 'block' : 'hidden'} z-0`}>
           <div className="xl:hidden">
             <ul className="menu menu-lg w-full z-0">
-              <li><a href="/about" className="menu-active"><FaRegUser /> {t('about')}</a></li>
-              <li><a href="/blog"><GrBlog /> {t('blog')}</a></li>
-              <li><a href="/projects"><LiaClipboardListSolid /> {t('projects')}</a></li>
-              <li><a href="/contact-me"><FiPhoneCall /> {t('contactme')}</a></li>
+              <li><a href="/about" className={ location.pathname == "/about" ? "menu-active" : ""}><FaRegUser /> {t('about')}</a></li>
+              <li><a href="/blog" className={ location.pathname == "/blog" ? "menu-active" : ""}><GrBlog /> {t('blog')}</a></li>
+              <li><a href="/projects" className={ location.pathname == "/projects" ? "menu-active" : ""}><LiaClipboardListSolid /> {t('projects')}</a></li>
+              <li><a href="/contact-me" className={ location.pathname == "/contact-me" ? "menu-active" : ""}><FiPhoneCall /> {t('contactme')}</a></li>
             </ul>
             
             <div className="absolute bottom-2.5">
@@ -138,7 +130,7 @@ const App = () => {
               </ul>
             </div>
           </div>
-          <div className="hidden xl:block">
+          <div className="hidden xl:block z-0">
             <Outlet />
           </div>
         </div>

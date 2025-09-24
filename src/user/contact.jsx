@@ -12,7 +12,7 @@ const ContactMe = () => {
         <div className="max-w-[1200px] w-full lg:px-32 py-3 lg:py-8">
           <div className="text-center font-semibold text-xl lg:text-3xl">{ t('contactme') }</div>
 
-          <div className="grid lg:grid-cols-5 mt-4 lg:mt-8 gap-x-6">
+          <div className="grid lg:grid-cols-5 mt-4 lg:mt-8 gap-x-6 px-6">
             <div className='py-2 lg:col-span-3'>
               <label htmlFor="">{ t("enter-question") }</label>
               <textarea name="" id="" className='textarea lg:textarea-lg w-full h-full'  placeholder={t("hold-question")}></textarea>
